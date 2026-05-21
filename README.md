@@ -10,7 +10,7 @@ A Claude Code skill to reduce token usage during your sessions. Activate only wh
 |---|---|
 | **Block .md** | Prevents Claude from creating or editing any `.md` file in your project |
 | **No emojis** | Removes emojis from all responses and generated code |
-| **Short response** | After completing any task, Claude replies only: `Listo terminado` |
+| **Short response** | After completing any task (tool use), Claude replies only: `Listo` |
 
 Each function is independent — activate one, two, or all three.
 
@@ -61,7 +61,7 @@ After selecting, Claude will ask where to save your preferences:
 | Option | Behavior |
 |---|---|
 | **This session only** | Rules apply now, nothing is saved to disk |
-| **Save globally** | Rules are written to `~/.claude/CLAUDE.md` and apply in all projects |
+| **Save globally** | Rules are written to `~/.claude/CLAUDE.md` (Linux/Mac) or `%USERPROFILE%\.claude\CLAUDE.md` (Windows) and apply in all projects |
 | **Save for this project** | Rules are written to `.claude/CLAUDE.md` and apply only here |
 
 When saved, Claude writes a `## LoTokens` block to the target `CLAUDE.md`. On future sessions, the rules are active automatically — no need to run `/lotokens` again.
@@ -103,7 +103,7 @@ Built for [Claude Code](https://claude.ai/code) by AngyLabs.
 ---
 ---
 
-# Skill-LoTokens — Documentacion en Español
+# Skill-LoTokens — Documentacion en Espanol
 
 Una skill para Claude Code que reduce el uso de tokens en tus sesiones. Activa solo lo que necesitas desde un menu interactivo. Guarda tus preferencias para que persistan entre sesiones.
 
@@ -115,7 +115,7 @@ Una skill para Claude Code que reduce el uso de tokens en tus sesiones. Activa s
 |---|---|
 | **Bloquear .md** | Impide que Claude cree o edite cualquier archivo `.md` en tu proyecto |
 | **Sin emojis** | Elimina emojis de todas las respuestas y del codigo generado |
-| **Respuesta corta** | Al terminar cualquier tarea, Claude responde unicamente: `Listo terminado` |
+| **Respuesta corta** | Al completar cualquier tarea (uso de herramientas), Claude responde unicamente: `Listo` |
 
 Cada funcion es independiente: activa una, dos, o las tres.
 
@@ -166,7 +166,7 @@ Despues de seleccionar, Claude preguntara donde guardar tus preferencias:
 | Opcion | Comportamiento |
 |---|---|
 | **Solo esta sesion** | Las reglas aplican ahora, no se guarda nada en disco |
-| **Guardar globalmente** | Las reglas se escriben en `~/.claude/CLAUDE.md` y aplican en todos los proyectos |
+| **Guardar globalmente** | Las reglas se escriben en `~/.claude/CLAUDE.md` (Linux/Mac) o `%USERPROFILE%\.claude\CLAUDE.md` (Windows) y aplican en todos los proyectos |
 | **Guardar para este proyecto** | Las reglas se escriben en `.claude/CLAUDE.md` y aplican solo aqui |
 
 Al guardar, Claude escribe un bloque `## LoTokens` en el `CLAUDE.md` correspondiente. En futuras sesiones las reglas estaran activas automaticamente — no necesitas volver a ejecutar `/lotokens`.
