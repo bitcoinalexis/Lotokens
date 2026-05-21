@@ -103,7 +103,7 @@ Built for [Claude Code](https://claude.ai/code) by AngyLabs.
 ---
 ---
 
-# Skill-LoTokens — Documentacion en Espanol
+# Skill-LoTokens — Documentacion en Español
 
 Una skill para Claude Code que reduce el uso de tokens en tus sesiones. Activa solo lo que necesitas desde un menu interactivo. Guarda tus preferencias para que persistan entre sesiones.
 
