@@ -61,12 +61,19 @@ After selecting, Claude will ask where to save your preferences:
 | Option | Behavior |
 |---|---|
 | **This session only** | Rules apply now, nothing is saved to disk |
-| **Save globally** | Rules are written to `~/.claude/CLAUDE.md` (Linux/Mac) or `%USERPROFILE%\.claude\CLAUDE.md` (Windows) and apply in all projects |
-| **Save for this project** | Rules are written to `.claude/CLAUDE.md` and apply only here |
+| **Save globally** | Rules are written to `~/.claude/CLAUDE.md` (Linux/macOS) or `%USERPROFILE%\.claude\CLAUDE.md` (Windows) and apply in all projects |
+| **Save for this project** | Rules are written to `.claude/CLAUDE.md` in the current directory and apply only here |
 
-When saved, Claude writes a `## LoTokens` block to the target `CLAUDE.md`. On future sessions, the rules are active automatically — no need to run `/lotokens` again.
+### How persistent memory works
 
-To update or remove saved preferences, run `/lotokens` again or manually edit the `## LoTokens` section in the corresponding `CLAUDE.md`.
+When you choose to save, Claude writes a `## LoTokens` block into the target `CLAUDE.md` file. Claude Code automatically loads `CLAUDE.md` at the start of every session, so your rules are active without running `/lotokens` again.
+
+- Only the rules for the functions you selected are written — unused functions are omitted.
+- If a `## LoTokens` block already exists in the file, it is replaced entirely.
+- To update preferences: run `/lotokens` again and choose new options.
+- To remove preferences: delete the `## LoTokens` block from the corresponding `CLAUDE.md`, or run `/lotokens` and select no functions.
+
+**OS detection:** Claude detects your operating system automatically and uses the correct path. On Windows, `%USERPROFILE%` is expanded to your home directory (e.g. `C:\Users\yourname`).
 
 ---
 
@@ -166,12 +173,19 @@ Despues de seleccionar, Claude preguntara donde guardar tus preferencias:
 | Opcion | Comportamiento |
 |---|---|
 | **Solo esta sesion** | Las reglas aplican ahora, no se guarda nada en disco |
-| **Guardar globalmente** | Las reglas se escriben en `~/.claude/CLAUDE.md` (Linux/Mac) o `%USERPROFILE%\.claude\CLAUDE.md` (Windows) y aplican en todos los proyectos |
-| **Guardar para este proyecto** | Las reglas se escriben en `.claude/CLAUDE.md` y aplican solo aqui |
+| **Guardar globalmente** | Las reglas se escriben en `~/.claude/CLAUDE.md` (Linux/macOS) o `%USERPROFILE%\.claude\CLAUDE.md` (Windows) y aplican en todos los proyectos |
+| **Guardar para este proyecto** | Las reglas se escriben en `.claude/CLAUDE.md` del directorio actual y aplican solo aqui |
 
-Al guardar, Claude escribe un bloque `## LoTokens` en el `CLAUDE.md` correspondiente. En futuras sesiones las reglas estaran activas automaticamente — no necesitas volver a ejecutar `/lotokens`.
+### Como funciona la memoria persistente
 
-Para actualizar o eliminar las preferencias guardadas, vuelve a ejecutar `/lotokens` o edita manualmente la seccion `## LoTokens` en el `CLAUDE.md` correspondiente.
+Al guardar, Claude escribe un bloque `## LoTokens` en el archivo `CLAUDE.md` correspondiente. Claude Code carga `CLAUDE.md` automaticamente al iniciar cada sesion, por lo que tus reglas quedan activas sin necesidad de volver a ejecutar `/lotokens`.
+
+- Solo se escriben las reglas de las funciones que seleccionaste — las no utilizadas se omiten.
+- Si ya existe un bloque `## LoTokens` en el archivo, se reemplaza por completo.
+- Para cambiar preferencias: ejecuta `/lotokens` nuevamente y elige nuevas opciones.
+- Para eliminar preferencias: borra el bloque `## LoTokens` del `CLAUDE.md` correspondiente, o ejecuta `/lotokens` sin seleccionar ninguna funcion.
+
+**Deteccion de sistema operativo:** Claude detecta tu sistema operativo automaticamente y usa la ruta correcta. En Windows, `%USERPROFILE%` se expande a tu directorio de usuario (por ejemplo `C:\Users\tunombre`).
 
 ---
 
