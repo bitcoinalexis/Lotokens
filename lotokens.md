@@ -16,6 +16,7 @@ Opciones disponibles (el usuario puede elegir varias, una, o ninguna):
 
 - **Bloquear .md** — Impide crear o editar cualquier archivo `.md` durante esta sesion.
 - **Sin emojis** — Prohibe emojis en todas tus respuestas y en el codigo que generes.
+- **Sin comentarios** — Prohibe escribir comentarios en el codigo generado (`#`, `//`, `/* */`, `<!-- -->`, docstrings, headers decorativos, etc.).
 - **Respuesta corta** — Al completar cualquier tarea (cuando usas herramientas), responde unicamente: `Listo`
 
 ---
@@ -70,6 +71,20 @@ Reglas por funcion para escribir en CLAUDE.md:
 - NO incluyas emojis en comentarios de codigo, strings ni documentacion inline
 ```
 
+**Sin comentarios:**
+```
+### Sin comentarios
+- NO escribas comentarios de ningun tipo en el codigo generado
+- Incluye: `#` (Python, shell, YAML), `//` (JS, TS, Go, Java, C/C++, Rust), `/* */`, `<!-- -->` (HTML/XML), `--` (SQL, Lua), `;` (Lisp, ASM)
+- NO escribas docstrings de Python (`"""..."""` o `'''...'''`) ni JSDoc (`/** */`)
+- NO escribas headers decorativos tipo `# ===== CONFIGURACION =====` ni separadores de seccion
+- NO escribas comentarios de "que hace este archivo" al inicio del script
+- NO escribas comentarios al final de linea explicando codigo (`x = 5  # contador`)
+- Si modificas un archivo existente que YA tiene comentarios, no agregues nuevos pero deja los existentes intactos (a menos que el usuario pida quitarlos)
+- EXCEPCION UNICA: solo escribe comentarios si el usuario los solicita EXPLICITAMENTE en esa peticion concreta
+- Si la sintaxis del lenguaje exige texto en cierta posicion (ej. shebang `#!/usr/bin/env python`), eso NO es comentario y SI va
+```
+
 **Respuesta corta:**
 ```
 ### Respuesta corta
@@ -105,6 +120,16 @@ Las siguientes reglas aplican INMEDIATAMENTE desde el momento en que el usuario 
 ### Sin emojis
 - NO incluyas emojis en respuestas de texto
 - NO incluyas emojis en comentarios de codigo, strings ni documentacion inline
+
+### Sin comentarios
+- NO escribas comentarios de ningun tipo en el codigo generado
+- Incluye: `#`, `//`, `/* */`, `<!-- -->`, `--`, `;`, docstrings `"""..."""` / `'''...'''`, JSDoc `/** */`
+- NO escribas headers decorativos tipo `# ===== CONFIGURACION =====` ni separadores de seccion
+- NO escribas comentarios descriptivos al inicio del archivo ("ESTE SCRIPT ANALIZA...")
+- NO escribas comentarios al final de linea (`x = 5  # contador`)
+- Si modificas un archivo que YA tiene comentarios, no agregues nuevos pero deja los existentes intactos
+- EXCEPCION UNICA: solo si el usuario los pide EXPLICITAMENTE en esa peticion
+- Shebangs (`#!/usr/bin/env python`) y directivas tipo `# -*- coding: utf-8 -*-` SI van porque son sintaxis, no comentarios
 
 ### Respuesta corta
 - Una "tarea" es cualquier accion que requiera usar herramientas (Write, Edit, Bash, Read, Glob, Grep, etc.)
