@@ -10,9 +10,10 @@ A Claude Code skill to reduce token usage during your sessions. Activate only wh
 |---|---|
 | **Block .md** | Prevents Claude from creating or editing any `.md` file in your project |
 | **No emojis** | Removes emojis from all responses and generated code |
+| **No comments** | Prevents Claude from writing comments in generated code (`#`, `//`, `/* */`, docstrings, decorative headers, etc.) |
 | **Short response** | After completing any task (tool use), Claude replies only: `Listo` |
 
-Each function is independent — activate one, two, or all three.
+Each function is independent — activate one, several, or all of them.
 
 ---
 
@@ -84,13 +85,14 @@ When you choose to save, Claude writes a `## LoTokens` block into the target `CL
 
 LoTokens — select the functions you want to activate:
   [x] No emojis
+  [x] No comments
   [x] Short response
   [ ] Block .md
 
 Save these preferences for future sessions?
   > Save globally (~/.claude/CLAUDE.md)
 
-LoTokens active — No emojis | Short response
+LoTokens active — No emojis | No comments | Short response
 Preferences saved in ~/.claude/CLAUDE.md
 ```
 
@@ -122,9 +124,10 @@ Una skill para Claude Code que reduce el uso de tokens en tus sesiones. Activa s
 |---|---|
 | **Bloquear .md** | Impide que Claude cree o edite cualquier archivo `.md` en tu proyecto |
 | **Sin emojis** | Elimina emojis de todas las respuestas y del codigo generado |
+| **Sin comentarios** | Impide que Claude escriba comentarios en el codigo generado (`#`, `//`, `/* */`, docstrings, headers decorativos, etc.) |
 | **Respuesta corta** | Al completar cualquier tarea (uso de herramientas), Claude responde unicamente: `Listo` |
 
-Cada funcion es independiente: activa una, dos, o las tres.
+Cada funcion es independiente: activa una, varias, o todas.
 
 ---
 
@@ -196,13 +199,14 @@ Al guardar, Claude escribe un bloque `## LoTokens` en el archivo `CLAUDE.md` cor
 
 LoTokens — selecciona las funciones que deseas activar:
   [x] Sin emojis
+  [x] Sin comentarios
   [x] Respuesta corta
   [ ] Bloquear .md
 
 Guardar estas preferencias para futuras sesiones?
   > Guardar globalmente (~/.claude/CLAUDE.md)
 
-LoTokens activo — Sin emojis | Respuesta corta
+LoTokens activo — Sin emojis | Sin comentarios | Respuesta corta
 Preferencias guardadas en ~/.claude/CLAUDE.md
 ```
 
