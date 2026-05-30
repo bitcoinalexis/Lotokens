@@ -14,7 +14,7 @@ Pregunta: "LoTokens — selecciona las funciones que deseas activar:"
 
 Opciones disponibles (el usuario puede elegir varias, una, o ninguna):
 
-- **Bloquear .md** — Impide crear o editar cualquier archivo `.md` durante esta sesion.
+- **Bloquear .md** — Impide crear o editar archivos `.md` durante esta sesion (excepto `CLAUDE.md` y `.md` dentro de `memory/`, que siempre estan permitidos).
 - **Sin emojis** — Prohibe emojis en todas tus respuestas y en el codigo que generes.
 - **Sin comentarios** — Prohibe escribir comentarios en el codigo generado (`#`, `//`, `/* */`, `<!-- -->`, docstrings, headers decorativos, etc.).
 - **Respuesta corta** — Al completar cualquier tarea (cuando usas herramientas), responde unicamente: `Listo`
