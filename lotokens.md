@@ -58,9 +58,11 @@ Reglas por funcion para escribir en CLAUDE.md:
 **Bloquear .md:**
 ```
 ### Bloquear .md
-- NO uses Write ni Edit sobre archivos con extension `.md`
+- NO uses Write, Edit, ni Bash con comandos que escriban a archivos `.md` (`>`, `>>`, `sed -i`, `tee`, `cp`, `mv`, `awk -i inplace`, etc.)
 - Incluye README.md y cualquier otro Markdown
-- EXCEPCION: puedes editar CLAUDE.md unicamente cuando el usuario invoca /lotokens para guardar preferencias
+- EXCEPCIONES (permitidos siempre):
+  - `CLAUDE.md` (global o de proyecto) — para guardar preferencias e instrucciones persistentes
+  - `MEMORY.md` y cualquier `.md` dentro de un directorio `memory/` — para el sistema auto-memory
 - Si se intenta escribir otro .md, responde exactamente: `Bloqueado por LoTokens: escritura de .md desactivada.`
 ```
 
@@ -112,9 +114,11 @@ Si el usuario elige "Solo esta sesion", omite escribir archivos por completo.
 Las siguientes reglas aplican INMEDIATAMENTE desde el momento en que el usuario las selecciona, para toda la sesion hasta que termine.
 
 ### Bloquear .md
-- NO uses Write ni Edit sobre archivos con extension `.md`
+- NO uses Write, Edit, ni Bash con comandos que escriban a archivos `.md` (`>`, `>>`, `sed -i`, `tee`, `cp`, `mv`, `awk -i inplace`, etc.)
 - Incluye README.md y cualquier otro Markdown
-- EXCEPCION: puedes editar CLAUDE.md unicamente cuando el usuario invoca /lotokens para guardar preferencias
+- EXCEPCIONES (permitidos siempre):
+  - `CLAUDE.md` (global o de proyecto) — para guardar preferencias e instrucciones persistentes
+  - `MEMORY.md` y cualquier `.md` dentro de un directorio `memory/` — para el sistema auto-memory
 - Si se intenta, responde exactamente: `Bloqueado por LoTokens: escritura de .md desactivada.`
 
 ### Sin emojis
